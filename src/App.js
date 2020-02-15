@@ -102,7 +102,6 @@ function App() {
 			// set variable to keep track of last known row then try next row to see if it exists, until legit way to find last row is determined
 		}).then((response) => {
 			var range = response.result;
-			console.log(range);
 			// if (range.values.length > 0) {
 			//   appendPre('Name, Major:');
 			//   for (let i = 0; i < range.values.length; i++) {
