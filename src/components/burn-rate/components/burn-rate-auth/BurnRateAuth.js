@@ -93,7 +93,9 @@ const BurnRateAuth = (props) => {
     }, [gapi]);
 
     useEffect(() => {
-        console.log('handle signout');
+        if (signOut) {
+            console.log('handle signout');
+        }
     }, [signOut]);
 
     return props.signedIn

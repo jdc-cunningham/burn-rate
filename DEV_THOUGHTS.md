@@ -9,3 +9,12 @@ The main design is just a concentric view that's colored. I've actually [already
 I'm still not quite sure if it's going to write to the Spreadsheet. One other aspect is increasing/decreasing your bills(which would be in another tab) and it would update the burn rate here.
 
 ![basic design](./sketch--burn-rate-basic-interface.PNG)
+
+### Progress Updates
+
+#### 12/16/2020
+Today I'm just trying to get a basic version of this app deployed to my phone. It will be a PWA. Since I don't want to keep buying domains/setting up SSLs(use certbot) I'm just going to make all of my microapps into one. That's why this app is being developed like a "component" ha... (crickets)
+
+Anyway, I primarily was trying to write this with obscurity at first but realized would be better to just call it straight up eg. Net Worth/Bills tab.
+
+I'm not supposed to spend too much time on this app right now because I have other things lined up/gotta get done today. But I need this, I need this to feel like I achieved something for myself on the weekend.

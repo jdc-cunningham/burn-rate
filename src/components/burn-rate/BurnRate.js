@@ -6,15 +6,20 @@ import BurnRateInterface from './components/burn-rate-interface/BurnRateInterfac
 const BurnRate = (props) => {
     const [gapi, setGapi] = useState(null);
     const [signedIn, updateSignedIn] = useState(false);
-    
+    const [signOut, callSignOut] = useState(false);
+
 	return (
 		<div className="BurnRate">
             <BurnRateAuth
                 gapi={ gapi }
                 setGapi={ setGapi }
                 signedIn={ signedIn }
-                updateSignedIn={ updateSignedIn } />
-            <BurnRateInterface signedIn={ signedIn } />
+                updateSignedIn={ updateSignedIn }
+                signOut={ signOut } />
+            <BurnRateInterface
+                gapi={ gapi }
+                signedIn={ signedIn }
+                callSignOut={ callSignOut } />
 		</div>
 	);
 }
