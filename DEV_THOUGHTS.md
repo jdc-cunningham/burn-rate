@@ -18,3 +18,9 @@ Today I'm just trying to get a basic version of this app deployed to my phone. I
 Anyway, I primarily was trying to write this with obscurity at first but realized would be better to just call it straight up eg. Net Worth/Bills tab.
 
 I'm not supposed to spend too much time on this app right now because I have other things lined up/gotta get done today. But I need this, I need this to feel like I achieved something for myself on the weekend.
+
+Oh man... running low on time here, I added a credit card tab and that took a bit to hunt down all the statements and fill it in, not needed now but useful for later
+
+I'm done for now, I can feel my brain shitting the bed already so early, still riding that energy drink/fast "high" but gotta work on something else, thankfully nothing to difficult.
+
+Currently it's functional within the scope of my own data eg. it outputs how many months I can pay my bare min bills.
