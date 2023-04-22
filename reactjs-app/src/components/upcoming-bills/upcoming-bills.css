@@ -1,0 +1,43 @@
+.UpcomingBills {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.UpcomingBills h2 {
+  font-size: 2rem;
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+.UpcomingBills__bill {
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-start;
+  flex-direction: row;
+  width: 90%;
+  padding: 0.5rem;
+  box-shadow: 1px 1px 4px #282828;
+  border-radius: 6px;
+  font-size: 1.25rem;
+  background-color: white;
+  color: #282828;
+}
+
+.UpcomingBills__bill:not(:first-of-type) {
+  margin-top: 0.5rem;
+}
+
+.UpcomingBills__name {
+  width: 50%;
+}
+
+.UpcomingBills__amount {
+  width: 30%;
+}
+
+.UpcomingBills__date {
+  width: 20%;
+}

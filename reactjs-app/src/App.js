@@ -16,6 +16,7 @@ const App = () => {
   const [appHour, setAppHour] = useState(0);
 
   const apiBasePath = 'http://localhost:5045';
+  const monthMap = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
 
   const callApi = async (route) => new Promise((resolve, reject) => { // sus
     axios.get(`${apiBasePath}/${route}`)
@@ -57,6 +58,24 @@ const App = () => {
     return hour;
   }
 
+  const dateBlock = () => {
+    const dateObj = new Date();
+    const date = dateObj.getDate();
+    const month = dateObj.getMonth();
+    const year = dateObj.getFullYear();
+    const hour = getCurrentHour();
+    const hours = dateObj.getHours();
+    const min = dateObj.getMinutes();
+    const period = hours >= 12 ? 'PM' : 'AM';
+
+    return (
+      <div className="App__top-date-time">
+        <h3>{`${month}/${date}/${year}`}</h3>
+        <h4>{`${hour}:${min} ${period}`}</h4>
+      </div>
+    );
+  }
+
   useEffect(() => {
     if (appHour) {
       getAppData();
@@ -78,11 +97,17 @@ const App = () => {
 
   return (
     <div className="App">
-      <div className="App__left">
-        <StatusDisplay appData={appData} />
+      <div className="App__top">
+        <h1>Burn Rate</h1>
+        {dateBlock()}
       </div>
-      <div className="App__right">
-        <UpcomingBills appData={appData} />
+      <div className="App__body">
+        <div className="App__left">
+          <StatusDisplay appData={appData} />
+        </div>
+        <div className="App__right">
+          <UpcomingBills appData={appData} monthMap={monthMap} />
+        </div>
       </div>
     </div>
   );

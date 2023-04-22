@@ -9,9 +9,10 @@
 
 .StatusDisplay h2 {
   font-size: 5rem;
+  color: white;
 }
 
 .StatusDisplay p {
   font-size: 1.25rem;
-  color: #505050;
+  color: #ccc;
 }
