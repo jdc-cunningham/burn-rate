@@ -1,6 +1,7 @@
 body {
   font-family: 'roboto', sans-serif;
   color: white;
+  -webkit-app-region: drag;
 }
 
 body * {

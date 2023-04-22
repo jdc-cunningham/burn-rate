@@ -65,6 +65,14 @@ const App = () => {
     return hour;
   }
 
+  const checkLeadingZero = (str) => {
+    if (str.length === 1) {
+      return `0${str}`;
+    } else {
+      return str;
+    }
+  }
+
   const dateBlock = () => {
     const dateObj = new Date();
     const date = dateObj.getDate();
@@ -78,7 +86,7 @@ const App = () => {
     return (
       <div className="App__top-date-time">
         <h3>{`${month}/${date}/${year}`}</h3>
-        <h4>{`${hour}:${min} ${period}`}</h4>
+        <h4>{`${hour}:${checkLeadingZero(min)} ${period}`}</h4>
       </div>
     );
   }

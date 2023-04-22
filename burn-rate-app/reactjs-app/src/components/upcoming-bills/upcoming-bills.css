@@ -13,16 +13,28 @@
 }
 
 .UpcomingBills__bill {
+  position: relative;
   display: flex;
   align-items: stretch;
   justify-content: flex-start;
   flex-direction: row;
   width: 90%;
   padding: 0.5rem;
-  border-radius: 4px;
   font-size: 1.25rem;
-  background-color: white;
   color: #282828;
+}
+
+.UpcomingBills__bill::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  opacity: 0.8;
+  z-index: -1;
+  border-radius: 4px;
 }
 
 .UpcomingBills__bill:not(:first-of-type) {

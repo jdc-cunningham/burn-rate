@@ -12,16 +12,19 @@ let mainWindow;
 // listen for app to be ready
 app.on('ready', () => {
   // create new window
-  mainWindow = new BrowserWindow();
+  mainWindow = new BrowserWindow({
+    width: 1024,
+    height: 720,
+    frame: false,
+    transparent: true,
+    titleBarStyle: 'hidden'
+  });
 
   // load html file into window
   mainWindow.loadURL(url.format({
     pathname: path.join(__dirname, './reactjs-app/build/index.html'),
     protocol: 'file:',
     slashes: true,
-    minWidth: 1024,
-    minHeight: 720,
-    frame: false,
   }));
 
   // quit app when closed
