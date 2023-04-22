@@ -85,7 +85,7 @@ const App = () => {
 
     return (
       <div className="App__top-date-time">
-        <h3>{`${month}/${date}/${year}`}</h3>
+        <h3>{`${month + 1}/${date}/${year}`}</h3>
         <h4>{`${hour}:${checkLeadingZero(min)} ${period}`}</h4>
       </div>
     );
