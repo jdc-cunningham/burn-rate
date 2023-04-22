@@ -6,32 +6,39 @@ import UpcomingBills from './components/upcoming-bills/upcoming-bills';
 import startClock from './web-worker/worker';
 
 const App = () => {
-  const [appData, setAppData] = useState({});
+  const [appData, setAppData] = useState({
+    netWorth: {},
+    bills: [],
+    cards: []
+  });
+
   const [appTime, setAppTime] = useState(0); // 0-60 minutes
   const [appHour, setAppHour] = useState(0);
 
   const apiBasePath = 'http://localhost:5045';
 
-  const callApi = (route) => {
-    return new Promise((resolve, reject) => { // dumb nested promises
-      axios.get(`${apiBasePath}/${route}`)
-        .then((res) => {
-          if (res?.data?.data) {
-            resolve(res.data.data);
-          } else {
-            reject();
-          }
-        })
-        .catch(() => reject());
-    });
-  };
+  const callApi = async (route) => new Promise((resolve, reject) => { // sus
+    axios.get(`${apiBasePath}/${route}`)
+      .then((res) => {
+        if (res?.data?.data) {
+          resolve(res.data.data);
+        } else {
+          reject();
+        }
+      })
+      .catch(() => reject());
+  });
 
   const getAppData = async () => {
     const netWorth = await callApi('get-latest-net-worth');
     const bills = await callApi('get-bills');
     const cards = await callApi('get-cards');
 
-    console.log(netWorth, bills, cards);
+    setAppData({
+      netWorth,
+      bills,
+      cards
+    });
   }
 
   const getCurrentHour = () => {
@@ -43,11 +50,17 @@ const App = () => {
       hour = hour - 12;
     }
 
+    if (hour === 0) {
+      hour = 12; // no AM/PM
+    }
+
     return hour;
   }
 
   useEffect(() => {
-    getAppData();
+    if (appHour) {
+      getAppData();
+    }
   }, [appHour]);
 
   useEffect(() => {
@@ -66,10 +79,10 @@ const App = () => {
   return (
     <div className="App">
       <div className="App__left">
-        <StatusDisplay />
+        <StatusDisplay appData={appData} />
       </div>
       <div className="App__right">
-        <UpcomingBills />
+        <UpcomingBills appData={appData} />
       </div>
     </div>
   );

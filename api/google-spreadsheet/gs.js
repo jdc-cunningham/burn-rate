@@ -137,7 +137,7 @@ const getLatestNetWorthRow = async (req, res) => {
 }
 
 const getBillRows = async (req, res) => {
-  const billRows = await _getAllRows(tabs[1], 'A1:F21');
+  const billRows = await _getAllRows(tabs[1], 'A1:F22');
   
   if (!billRows) {
     res.status(400).json({err: true});
@@ -147,7 +147,7 @@ const getBillRows = async (req, res) => {
 }
 
 const getCardRows = async (req, res) => {
-  const cardRows = await _getAllRows(tabs[2], 'A1:D12');
+  const cardRows = await _getAllRows(tabs[2], 'A1:E12');
   
   if (!cardRows) {
     res.status(400).json({err: true});
