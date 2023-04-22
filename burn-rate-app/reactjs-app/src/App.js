@@ -65,11 +65,11 @@ const App = () => {
     return hour;
   }
 
-  const checkLeadingZero = (str) => {
-    if (str.length === 1) {
-      return `0${str}`;
+  const checkLeadingZero = (num) => {
+    if (num < 10) {
+      return `0${num}`;
     } else {
-      return str;
+      return num;
     }
   }
 
