@@ -75,7 +75,7 @@ const StatusDisplay = (props) => {
     const cash = calculateCashCredit(appData.netWorth, appData.cards);
     const monthlyBills = calculateBills(appData.bills, appData.cards);
 
-    const monthsLeft = (cash/monthlyBills).toFixed(2);
+    const monthsLeft = Math.ceil((cash/monthlyBills).toFixed(2) * 30); // ceil since 30 loses a few days
     setDisplayData(monthsLeft);
   }
 
@@ -89,7 +89,7 @@ const StatusDisplay = (props) => {
     <div className="StatusDisplay">
       <div className="StatusDisplay__text-group">
         <h2>{apiErr ? 'API error' : displayData}</h2>
-        <span>{apiErr ? '' : 'months'}</span>
+        <span>{apiErr ? '' : 'days'}</span>
       </div>
     </div>
   );
