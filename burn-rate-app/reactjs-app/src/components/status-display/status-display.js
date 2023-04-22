@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import './status-display.css';
 
 const StatusDisplay = (props) => {
-  const { appData } = props;
+  const { appData, apiErr } = props;
 
   const [displayData, setDisplayData] = useState(0); // months left burn rate
 
@@ -87,8 +87,8 @@ const StatusDisplay = (props) => {
 
   return (
     <div className="StatusDisplay">
-      <h2>{displayData}</h2>
-      <p>(months left)</p>
+      <h2>{apiErr ? 'API error' : displayData}</h2>
+      <span>{apiErr ? '' : 'mos'}</span>
     </div>
   );
 }

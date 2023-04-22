@@ -14,26 +14,33 @@ const App = () => {
 
   const [appTime, setAppTime] = useState(0); // 0-60 minutes
   const [appHour, setAppHour] = useState(0);
+  const [apiErr, setApiErr] = useState(false);
 
   const apiBasePath = 'http://localhost:5045';
   const monthMap = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
 
-  const callApi = async (route) => new Promise((resolve, reject) => { // sus
+  const callApi = async (route) => new Promise(resolve => { // sus
     axios.get(`${apiBasePath}/${route}`)
       .then((res) => {
         if (res?.data?.data) {
           resolve(res.data.data);
         } else {
-          reject();
+          resolve();
         }
       })
-      .catch(() => reject());
+      .catch((e) => {
+        resolve();
+      });
   });
 
   const getAppData = async () => {
-    const netWorth = await callApi('get-latest-net-worth');
-    const bills = await callApi('get-bills');
-    const cards = await callApi('get-cards');
+    const netWorth = await callApi('get-latest-net-worth') || {};
+    const bills = await callApi('get-bills') || [];
+    const cards = await callApi('get-cards') || [];
+
+    if (!Object.keys(netWorth).length) {
+      setApiErr(true);
+    };
 
     setAppData({
       netWorth,
@@ -103,7 +110,7 @@ const App = () => {
       </div>
       <div className="App__body">
         <div className="App__left">
-          <StatusDisplay appData={appData} />
+          <StatusDisplay appData={appData} apiErr={apiErr} />
         </div>
         <div className="App__right">
           <UpcomingBills appData={appData} monthMap={monthMap} />
