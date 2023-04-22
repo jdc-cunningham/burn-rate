@@ -4,7 +4,7 @@
   "description": "App to track how many months left I have before I'm absolutely broke",
   "main": "main.js",
   "devDependencies": {
-    "electron-packager": "^14.2.1"
+    "electron-packager": "^17.1.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
