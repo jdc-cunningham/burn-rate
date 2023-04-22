@@ -2,7 +2,7 @@
 const startClock = (setAppTime) => {
   if (window.Worker) {
                 
-    var workerClock = new Worker('/worker-clock.js');
+    var workerClock = new Worker(`${process.env.PUBLIC_URL}/worker-clock.js`);
 
     workerClock.onmessage = (event) => {
       setAppTime(event.data);
