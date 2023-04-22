@@ -8,10 +8,18 @@
   color: white;
 }
 
+.StatusDisplay__text-group {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  flex-direction: row;
+}
+
 .StatusDisplay h2 {
   font-size: 5rem;
 }
 
 .StatusDisplay span {
   font-size: 1.25rem;
+  margin-bottom: 10px;
 }

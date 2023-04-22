@@ -16,7 +16,7 @@ const App = () => {
   const [appHour, setAppHour] = useState(0);
   const [apiErr, setApiErr] = useState(false);
 
-  const apiBasePath = 'http://localhost:5045';
+  const apiBasePath = 'http://192.168.1.144:5045';
   const monthMap = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
 
   const callApi = async (route) => new Promise(resolve => { // sus

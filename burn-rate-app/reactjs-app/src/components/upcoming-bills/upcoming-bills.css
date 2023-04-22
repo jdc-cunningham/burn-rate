@@ -19,8 +19,7 @@
   flex-direction: row;
   width: 90%;
   padding: 0.5rem;
-  box-shadow: 1px 1px 4px #282828;
-  border-radius: 6px;
+  border-radius: 4px;
   font-size: 1.25rem;
   background-color: white;
   color: #282828;

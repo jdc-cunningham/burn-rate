@@ -87,8 +87,10 @@ const StatusDisplay = (props) => {
 
   return (
     <div className="StatusDisplay">
-      <h2>{apiErr ? 'API error' : displayData}</h2>
-      <span>{apiErr ? '' : 'mos'}</span>
+      <div className="StatusDisplay__text-group">
+        <h2>{apiErr ? 'API error' : displayData}</h2>
+        <span>{apiErr ? '' : 'months'}</span>
+      </div>
     </div>
   );
 }
