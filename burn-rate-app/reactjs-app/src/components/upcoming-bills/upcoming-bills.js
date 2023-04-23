@@ -7,6 +7,23 @@ const UpcomingBills = (props) => {
   const curDay = new Date().getDate();
   const curMonth = monthMap[new Date().getMonth()];
 
+  // double compute, handled in render bill rows
+  const billSum = () => {
+    let total = 0;
+
+    appData.bills.forEach((bill, index) => {
+      const dueDate = bill[3];
+
+      if (index > 0 && dueDate > curDay) {
+        const amount = bill[2].replace('$', '');
+
+        total += parseFloat(amount);
+      }
+    });
+
+    return Math.ceil(total);
+  }
+
   const renderBillRows = () => {
     const bills = []; // weird
 
@@ -39,7 +56,10 @@ const UpcomingBills = (props) => {
 
   return (
     <div className="UpcomingBills">
-      <h2>Upcoming bills</h2>
+      <div className="UpcomingBills__top">
+        <h2>Upcoming bills</h2>
+        <h3>${billSum()}</h3>
+      </div>
       {renderBillRows()}
     </div>
   );

@@ -2,7 +2,7 @@
 
 A daily reminder of my impending doom.
 
-<img src="burn-rate-app.JPG"/>
+<img src="readme__burn-rate-app.JPG"/>
 
 ### Stack
 
