@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: row;
+  flex-direction: column;
   width: 100%;
   height: 100%;
   color: white;
@@ -22,4 +22,20 @@
 .StatusDisplay span {
   font-size: 1.25rem;
   margin-bottom: 10px;
+}
+
+.StatusDisplay__cash-credit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  margin-top: 0.5rem;
+}
+
+.StatusDisplay__cash-credit h3 {
+  font-size: 1.25rem;
+}
+
+.StatusDisplay__cash-credit h3:last-of-type {
+  margin-left: 0.5rem;
 }

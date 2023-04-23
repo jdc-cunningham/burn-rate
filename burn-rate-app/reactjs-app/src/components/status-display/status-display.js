@@ -39,7 +39,7 @@ const StatusDisplay = (props) => {
       }
     });
 
-    return Math.floor(cash + creditLine);
+    return [cash, creditLine];
   }
 
   const calculateBills = (bills, cards) => {
@@ -72,11 +72,28 @@ const StatusDisplay = (props) => {
   }
 
   const getDisplayData = () => {
-    const cash = calculateCashCredit(appData.netWorth, appData.cards);
+    const cashCredit = calculateCashCredit(appData.netWorth, appData.cards);
     const monthlyBills = calculateBills(appData.bills, appData.cards);
+
+    let cash = 0;
+
+    cashCredit.forEach(source => {
+      cash += source
+    });
+
+    cash = Math.floor(cash);
 
     const monthsLeft = Math.ceil((cash/monthlyBills).toFixed(2) * 30); // ceil since 30 loses a few days
     setDisplayData(monthsLeft);
+  }
+
+  const getCashCredit = () => {
+    const cashCredit = calculateCashCredit(appData.netWorth, appData.cards); // double compute
+
+    return <>
+      <h3>Cash ${Math.floor(cashCredit[0])}</h3>
+      <h3>Credit ${Math.floor(cashCredit[1])}</h3>
+    </>
   }
 
   useEffect(() => {
@@ -90,6 +107,9 @@ const StatusDisplay = (props) => {
       <div className="StatusDisplay__text-group">
         <h2>{apiErr ? 'API error' : displayData}</h2>
         <span>{apiErr ? '' : 'days'}</span>
+      </div>
+      <div className="StatusDisplay__cash-credit">
+        {appData.bills.length && getCashCredit()}
       </div>
     </div>
   );
