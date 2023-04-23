@@ -47,7 +47,7 @@ const UpcomingBills = (props) => {
           ${bill.amount}
         </div>
         <div className="UpcomingBills__date">
-          {curMonth}, {bill.date}
+          {curMonth} {bill.date}
         </div>
       </div>
     ));
