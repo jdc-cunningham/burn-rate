@@ -38,6 +38,13 @@ const App = () => {
     const bills = await callApi('get-bills') || [];
     const cards = await callApi('get-cards') || [];
 
+    // https://stackoverflow.com/a/4382151/2710227
+    bills.sort( function( a, b )
+    {
+      if ( a[3] === b[3] ) return 0;
+      return a[3] < b[3] ? -1 : 1;
+    });
+
     if (!Object.keys(netWorth).length) {
       setApiErr(true);
     };
