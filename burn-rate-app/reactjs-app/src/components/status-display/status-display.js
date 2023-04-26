@@ -46,7 +46,7 @@ const StatusDisplay = (props) => {
     let monthlyBills = 0;
 
     bills.forEach((bill, index) => {
-      if (index > 0) { // header
+      if (bill[0] !== 'Name') { // header
         const amount = parseFloat(bill[2].replace('$', ''));
         const frequency = bills[4];
 
