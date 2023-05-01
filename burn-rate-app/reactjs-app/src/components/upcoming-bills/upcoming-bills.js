@@ -29,7 +29,7 @@ const UpcomingBills = (props) => {
     appData.bills.forEach((bill, index) => {
       const dueDate = bill[3];
 
-      if (index > 0 && dueDate > curDay) {
+      if (index > 0 && dueDate >= curDay) {
         const name = bill[0];
         const amount = bill[2].replace('$', '');
         const date = bill[3];

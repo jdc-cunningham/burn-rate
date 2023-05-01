@@ -28,6 +28,7 @@
   max-height: calc(100vh - 25vh);
   width: 100%;
   overflow-y: auto;
+  -webkit-app-region: no-drag;
 }
 
 .UpcomingBills__bill {
