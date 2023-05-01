@@ -1,3 +1,13 @@
+05/01/2023
+
+Now I have an overflowing list of bills first of the month, scroll is not working
+
+Date sorting isn't working
+
+
+
+---
+
 04/22/2023
 
 8:43 PM (yeah... I just woke up like 30 mins ago)

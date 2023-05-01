@@ -59,7 +59,9 @@ const UpcomingBills = (props) => {
         <h2>Upcoming bills</h2>
         <h3>${billSum()}</h3>
       </div>
-      {renderBillRows()}
+      <div className="UpcomingBills__scroll">
+        {renderBillRows()}
+      </div>
     </div>
   );
 }

@@ -3,7 +3,6 @@
   align-items: flex-start;
   flex-direction: column;
   height: 100%;
-  overflow-y: auto;
 }
 
 .UpcomingBills__top {
@@ -22,6 +21,13 @@
 
 .UpcomingBills__top h3 {
   font-size: 1.5rem;
+}
+
+.UpcomingBills__scroll {
+  display: block;
+  max-height: calc(100vh - 25vh);
+  width: 100%;
+  overflow-y: auto;
 }
 
 .UpcomingBills__bill {
