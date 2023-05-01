@@ -38,8 +38,6 @@ const App = () => {
     const bills = await callApi('get-bills') || [];
     const cards = await callApi('get-cards') || [];
 
-    console.log(bills);
-
     // https://stackoverflow.com/a/4382151/2710227
     bills.sort( function( a, b )
     {
