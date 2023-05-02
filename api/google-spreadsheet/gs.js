@@ -137,7 +137,7 @@ const getLatestNetWorthRow = async (req, res) => {
 }
 
 const getBillRows = async (req, res) => {
-  const billRows = await _getAllRows(tabs[1], 'A1:F22');
+  const billRows = await _getAllRows(tabs[1], 'A1:F33');
   
   if (!billRows) {
     res.status(400).json({err: true});
