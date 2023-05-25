@@ -32,7 +32,7 @@ const getColHeaders = async (tabName) => {
     sheets.spreadsheets.values.get({
         auth: jwtClient,
         spreadsheetId: process.env.SHEET_ID,
-        range: `${tabName}!A4:AB4`
+        range: `${tabName}!A0:AB5`
     }, (err, res) => {
       if (err) {
         resolve(false);
