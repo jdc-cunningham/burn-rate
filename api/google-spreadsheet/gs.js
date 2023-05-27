@@ -147,7 +147,7 @@ const getBillRows = async (req, res) => {
 }
 
 const getCardRows = async (req, res) => {
-  const cardRows = await _getAllRows(tabs[2], 'A1:E12');
+  const cardRows = await _getAllRows(tabs[2], 'A1:F12');
   
   if (!cardRows) {
     res.status(400).json({err: true});
