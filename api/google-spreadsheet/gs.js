@@ -137,12 +137,13 @@ const getLatestNetWorthRow = async (req, res) => {
 }
 
 const getBillRows = async (req, res) => {
-  const billRows = await _getAllRows(tabs[1], 'A1:F33');
+  const billRows = await _getAllRows(tabs[1], 'A1:F34');
+  const nwBillRows = await _getAllRows(tabs[0], 'A1:V5');
   
   if (!billRows) {
     res.status(400).json({err: true});
   } else {
-    res.status(200).json({data: billRows, err: false});
+    res.status(200).json({data: [billRows, nwBillRows], err: false});
   }
 }
 
